@@ -1,9 +1,8 @@
-asembler : main.cpp myscanner.h lex.yy.c TokensTable.h TokensTable.cpp InstrDescr.cpp InstrDescr.h Assembly.cpp Assembly.h VarTable.cpp VarTable.h BinaryTable.cpp BinaryTable.h RelocationTable.cpp RelocationTable.h
-	gcc main.cpp lex.yy.c TokensTable.cpp InstrDescr.cpp Assembly.cpp VarTable.cpp BinaryTable.cpp RelocationTable.cpp -ll -lstdc++ -o asembler 
+assembler : src/main.cpp h/myscanner.h src/lex.yy.c h/TokensTable.h src/TokensTable.cpp src/InstrDescr.cpp h/InstrDescr.h src/Assembly.cpp h/Assembly.h src/VarTable.cpp h/VarTable.h src/BinaryTable.cpp h/BinaryTable.h src/RelocationTable.cpp h/RelocationTable.h
+	gcc -I ./h/ src/main.cpp src/lex.yy.c src/TokensTable.cpp src/InstrDescr.cpp src/Assembly.cpp src/VarTable.cpp src/BinaryTable.cpp src/RelocationTable.cpp -ll -lstdc++ -o assembler 
 
-lex.yy.c: myscanner.l
-	lex myscanner.l
+lex.yy.c: ./flex/myscanner.l
+	lex flex/myscanner.l
 
 clean:
-	rm myscanner
-	rm lex.yy.c
+	rm assembler
