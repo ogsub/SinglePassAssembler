@@ -18,3 +18,6 @@ make
     #to run
 #enjoy!
 ```
+
+## Instructions
+After initial run with the commands above, the program usage message will be displayed. In directory tests/ there are the examples of the input file. You can name output file to your liking.
