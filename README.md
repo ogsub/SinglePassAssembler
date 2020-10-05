@@ -9,7 +9,7 @@ Uses:
 
 
 ## Instructions for compiling
-Extract or clone the repository, and open terminal inside. Position yourself in the ./MyAssembler/code/ directory.
+Extract or clone the repository and open terminal inside. Position yourself in the ./MyAssembler/code/ directory.
 
 ```sh
 make
@@ -20,4 +20,4 @@ make
 ```
 
 ## Instructions
-After initial run with the commands above, the program usage message will be displayed. In directory tests/ there are the examples of the input file. You can name output file to your liking.
+After initial run with the commands above, the program usage message will be displayed. In directory tests/ there are examples of the input file. You can name output file to your liking.
