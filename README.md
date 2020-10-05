@@ -8,7 +8,7 @@ Uses:
   - Flex
 
 
-## Instructions to compiling
+## Instructions for compiling
 Extract or clone the repository, and open terminal inside. Position yourself in the ./MyAssembler/code/ directory.
 
 ```sh
