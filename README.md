@@ -14,7 +14,7 @@ Extract or clone the repository, and open terminal inside. Position yourself in 
 ```sh
 make
     #to build
-./Assembler
+./assembler
     #to run
 #enjoy!
 ```
