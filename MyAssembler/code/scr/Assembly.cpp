@@ -98,8 +98,6 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 							literalValue);
 				}
 
-				//OVAJ DEO NAM NI NE TREBA JER OVE INSTRUKCIJE PRIMAJU SAMO JEDAN PARAMETAR
-				//ZAKOMENTARISI KASNIJE OVAJ DEO
 				currElem++;
 				if (currElem == currLine.end()) {
 					if (i != operandsNum - 1) {
@@ -255,9 +253,6 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 						break;
 					}
 					case Token::LITERAL:{
-
-						/////////////////////////////////////////////////////////////////
-
 						std::stringstream ss(currElem->second);
 						short literalValue;
 						ss >> literalValue;
@@ -329,24 +324,9 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 
 
 
-
-						////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
 						break;
 					}
 					case Token::SYMBOL:{
-
-						/////////////////////////////////////////////////////////////////////
-
-
 						short value = 0;
 
 						std::string symbolName = currElem->second;
@@ -503,20 +483,9 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 							exit(-1);
 						}
 
-
-
-
-
-
-						/////////////////////////////////////////////////////////////////////
 						break;
 					}
 					case Token::REG:{
-
-
-
-
-						////////////////////////////////////
 						this->varTable.getBinary().setAddressType(BinaryTable::REG_DIREKTNO);
 						char regNo = currElem->second[2] - '0';
 						this->varTable.getBinary().setAddressReg(regNo);
@@ -545,13 +514,6 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 							std::cout << "Greska43, ovde je morao ici zarez";
 							exit(-1);
 						}
-
-						////////////////////////////////////
-
-
-
-
-
 
 						break;
 					}
@@ -896,11 +858,6 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 						}
 						else{
 							regNo = 7;
-
-
-							////////////////////////////////////////////
-
-
 							value -= 2;	//ovo dodajem za pc vrednost operanda kod pc relativnog adresiranja u slucaju skokova
 							//takodje treba da se promeni adresiranje u rel Tabeli iz apsolutnog u pc relativno
 							this->varTable.getRelocationTable().getBack().setAddrType(RelocationTable::R_386_PC32);
@@ -912,10 +869,6 @@ const std::vector<std::pair<Token, std::string>> &currLine) {
 								value -= 1;	//ukoliko je u pitanju 1. operand, sigurno cemo morati da mu oduzmemo i ovaj bajt za nacin adresiranja
 								op1PCrel = true;
 							}
-
-							///////////////////////////////////////////
-
-
 						}
 						this->varTable.getBinary().setAddressReg(regNo);
 						if(!definedSize) {
@@ -1450,8 +1403,6 @@ void Assembly::translateDirective(std::vector<std::pair<Token, std::string>>::it
 				break;
 			}
 			case Token::SYMBOL:{
-
-				//////////////////////////////////////////////////////////////////
 				auto it = this->varTable.exists(currElem->second);
 				if (it != this->varTable.getVarTable().end()) {	//proverimo da li simbol vec postoji
 
@@ -1512,7 +1463,6 @@ void Assembly::translateDirective(std::vector<std::pair<Token, std::string>>::it
 					it->fLink.back().setSection(this->varTable.getCurrSection());
 					this->varTable.addLinks(variableName);
 				}
-				//////////////////////////////////////////////////////////////////
 
 				currElem++;
 				break;
