@@ -136,7 +136,7 @@ void VarTable::setSize(const std::string &name, int size) {
 	}
 }
 
-void VarTable::addSection(const std::string &name) {		//nije zavrsena!!
+void VarTable::addSection(const std::string &name) {		
 	auto it = std::find_if(this->varTable.begin(), this->varTable.end(),
 			[](const Field &f) {
 				if (f.size == -1) //vraca iterator na prvi element koji nije sekcija, da bi na tacno to mesto upisali sekciju
@@ -406,8 +406,6 @@ std::ostream& operator<<(std::ostream &os, const VarTable &vt) {
 		if(ref.section == ref.id && ref.id != 0){
 			os << "\n" << ref.name << "\n";
 //			os << ref.relocationTable;
-
-			////////////////////////////////////
 			if(!ref.relocationTable.isEmpty()){
 				ref.getRelocationTable();
 				os << "#offset\t\t" << "tip\t\t" << "vrednost\t\t" << "variable\t\t\n";
@@ -430,12 +428,6 @@ std::ostream& operator<<(std::ostream &os, const VarTable &vt) {
 					os <<"\t\t"<< std::hex << elem.variable <<"\n";
 				}
 			}
-
-
-
-
-
-			/////////////////////////////////////
 		}
 	}
 
