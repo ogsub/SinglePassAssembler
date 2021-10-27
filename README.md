@@ -1,4 +1,4 @@
-# MyAssembler
+# Single Pass Assembler
  Project made for better understanding of GNU Assembler
 
 This project is structured according to C++ best practices. It is developed on Linux for Linux, Ubuntu ver. 20.04 LTS.
